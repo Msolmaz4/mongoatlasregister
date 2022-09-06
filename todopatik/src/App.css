@@ -1,0 +1,12 @@
+.home{
+  background-image: url('../public/1.jpg');
+  background-size: contain;
+  background-repeat: none;
+  border: 2px blue solid;
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  padding-top:2Ovh;
+ 
+}
