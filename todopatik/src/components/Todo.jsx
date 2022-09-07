@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Button } from 'react-bootstrap';
@@ -11,11 +11,20 @@ import AuthContext from './Auth';
 function Todo() {
 
  const { current} = useContext(AuthContext)
+ const [input,setInput] =useState()
+ const [data,setData] = useState([])
 
  const handle =()=>{
     signOut(auth)
  }
 
+  const handlen = (e)=>{
+    e.preventDefault()
+    setData([...data,{input}])
+    console.log(setData)
+
+
+  }
 
   return (
     <Navbar>
@@ -33,6 +42,16 @@ function Todo() {
         </Navbar.Collapse>
         <Button onClick={handle}> Logout</Button>
       </Container>
+      <div>
+        <input type="text"  onChange={(e)=>setInput(e.target.value)}/>
+        <Button onClick={handlen}> Save</Button>
+        {
+            data.map((er)=>(
+                <div>{er.input}</div>
+            ))
+        }
+      </div>
+      
        </div>:(
         <div>
              <Button> login</Button>
