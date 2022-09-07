@@ -1,5 +1,6 @@
 import {BrowserRouter,Routes, Route} from "react-router-dom";
 import './App.css';
+import { AuthContextProvider } from "./components/Auth";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -8,7 +9,8 @@ import Todo from "./components/Todo";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+    <AuthContextProvider>
+    <div className="App">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
@@ -17,6 +19,8 @@ function App() {
         </Routes>
    
    </div>
+    </AuthContextProvider>
+      
     
     </BrowserRouter>
   

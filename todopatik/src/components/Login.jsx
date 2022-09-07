@@ -2,6 +2,11 @@ import { useRef } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Link} from 'react-router-dom'
+import { signInWithEmailAndPassword} from 'firebase/auth'
+import { auth} from './FireBase'
+import { useNavigate } from 'react-router-dom'
+
+
 
 
 
@@ -9,13 +14,23 @@ function Login() {
   
   const emailRef =useRef()
   const passwordRef =useRef()
+  const navi =useNavigate()
 
 
   
 
- const handle =(e)=>{
+ const handle = async(e)=>{
   e.preventDefault()
-  console.log(emailRef.current.value,passwordRef.current.value)
+  //console.log(emailRef.current.value,passwordRef.current.value)
+
+  try {
+    const user = await signInWithEmailAndPassword(auth,emailRef.current.value,passwordRef.current.value)
+  console.log(user)
+  navi('/todo')
+  } catch (error) {
+    alert(error)
+  }
+  
  }
 
 
@@ -26,6 +41,8 @@ function Login() {
 
    
     <Form style={{padding:'20vh'}} onSubmit={handle}>
+
+    
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email"  ref={emailRef}/>
