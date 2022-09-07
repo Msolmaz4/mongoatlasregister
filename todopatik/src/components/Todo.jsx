@@ -2,12 +2,19 @@ import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Button } from 'react-bootstrap';
+//cikis yapmak icin
+import { signOut } from 'firebase/auth'
+import { auth } from './FireBase';
 
 import AuthContext from './Auth';
 
 function Todo() {
 
  const { current} = useContext(AuthContext)
+
+ const handle =()=>{
+    signOut(auth)
+ }
 
 
   return (
@@ -24,7 +31,7 @@ function Todo() {
             Signed in as: {current.displayName}
           </Navbar.Text>
         </Navbar.Collapse>
-        <Button> Logout</Button>
+        <Button onClick={handle}> Logout</Button>
       </Container>
        </div>:(
         <div>
