@@ -5,13 +5,14 @@ import { Button } from 'react-bootstrap';
 //cikis yapmak icin
 import { signOut } from 'firebase/auth'
 import { auth } from './FireBase';
+import { nanoid } from 'nanoid'
 
 import AuthContext from './Auth';
 
 function Todo() {
 
  const { current} = useContext(AuthContext)
- const [input,setInput] =useState()
+ const [input,setInput] =useState('')
  const [data,setData] = useState([])
 
  const handle =()=>{
@@ -19,13 +20,31 @@ function Todo() {
  }
 
   const handlen = (e)=>{
+
     e.preventDefault()
-    setData([...data,{input}])
+    
+    const newData= {
+      id:nanoid(),
+      text:input
+    }
+
+
+    setData([...data,newData])
+    setInput('')
+    
+      
     console.log(setData)
 
 
   }
 
+  const delet = (e,id)=>{
+    const newData = data.filter((el)=>el.id !== id)
+    console.log(newData)
+    setData(newData)
+  }
+
+  
   return (
     <Navbar>
      
@@ -43,11 +62,15 @@ function Todo() {
         <Button onClick={handle}> Logout</Button>
       </Container>
       <div>
-        <input type="text"  onChange={(e)=>setInput(e.target.value)}/>
-        <Button onClick={handlen}> Save</Button>
+        <input type="text" value={input} onChange={(e)=>setInput(e.target.value)}/>
+        <Button onClick={handlen}>ekle</Button>
         {
             data.map((er)=>(
-                <div>{er.input}</div>
+                <div >{er.text}
+                {er.id}
+                <button onClick={(e)=>delet(e,er.id)}>silmek</button>
+             
+                </div>
             ))
         }
       </div>
