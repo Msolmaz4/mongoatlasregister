@@ -3,6 +3,9 @@ import { initializeApp } from "firebase/app";
 //2
 import { getAuth } from "firebase/auth";
 
+//3
+import {getFirestore} from 'firebase/firestore'
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,3 +26,6 @@ const app = initializeApp(firebaseConfig);
 //bunu doc goster bu biye firebase app icine kolazxa tamamiyaz yara yukarida sonradan import ediyoruy
 //exportu kendimiy yazdik ilk once register gittik 
  export const auth = getAuth(app); 
+
+ //burda biy baglandii saglizoruz ndb kendimiy veriyoruy
+ export const db = getFirestore(app)
