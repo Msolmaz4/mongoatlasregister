@@ -1,6 +1,6 @@
 import { Outlet ,Navigate} from "react-router-dom"
 import { useContext } from "react"
-import { UserContext } from "../context/UserContext"
+import  AuthContext from "../components/Auth"
 
 const Privat = () => {
 
@@ -17,8 +17,8 @@ const Privat = () => {
  */
 
 
-  const { isAuthenticated } =useContext(UserContext)
-  if(isAuthenticated){
+  const { isAuth } =useContext(AuthContext)
+  if(isAuth){
     return <Outlet/>
   }
 

@@ -5,8 +5,14 @@ import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./FireBase";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import  AuthContext from '../components/Auth'
+
 
 function Login() {
+
+
+ const {setIsAuth} =useContext(AuthContext)
   const emailRef = useRef();
   const passwordRef = useRef();
   const navi = useNavigate();
@@ -22,6 +28,7 @@ function Login() {
         passwordRef.current.value
       );
       console.log(user);
+      setIsAuth(true)
       navi("/todo");
     } catch (error) {
       alert(error);

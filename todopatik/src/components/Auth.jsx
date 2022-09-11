@@ -6,6 +6,12 @@ import { auth } from './FireBase'
 const AuthContext =React.createContext()
 
 export const AuthContextProvider =(props) =>{
+
+    //enson  b asta true verdim rahat olsun diye
+
+
+    const [isAuth,setIsAuth] =useState(false)   
+
     const [current ,setCurrent] = useState()
 
 
@@ -23,7 +29,7 @@ export const AuthContextProvider =(props) =>{
 
     return(
 
-        <AuthContext.Provider value={{current}}>
+        <AuthContext.Provider value={{current,isAuth,setIsAuth}}>
             {props.children}
         </AuthContext.Provider>
 

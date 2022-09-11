@@ -5,6 +5,9 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Todo from "./components/Todo";
+import Public from "./router/Public";
+import Privat from "./router/Privat";
+
 
 function App() {
   return (
@@ -12,10 +15,18 @@ function App() {
     <AuthContextProvider>
     <div className="App">
         <Routes>
+        <Route element={<Public/>}>
+
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/todo" element={<Todo/>}/>
           <Route path="/register" element={<Register/>}/>
+          </Route>
+             
+   
+          <Route  element ={<Privat/>}>
+
+          <Route path="/todo" element={<Todo/>}/>
+          </Route>
         </Routes>
    
    </div>
