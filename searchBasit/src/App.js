@@ -28,8 +28,9 @@ function App() {
     <div className="App">
 
       <input type='search'  onChange={(e)=>setInput(e.target.value)}/>
-      {
-        filter.map((el)=>(
+      {filter.length === 0
+       ? <div style={{color:'red'}}> es gibt estwas nicht</div>
+       : filter.map((el)=>(
           <div>
             {el.name}
           </div>
