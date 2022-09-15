@@ -23,20 +23,30 @@ const Register = () => {
   const handle = async (e) => {
     e.preventDefault();
     //deneme amacli console.log(emailRef.current.value)
+
+
     let displayName = nameRef.current.value;
-    try {
-      //bunu degisken atadam consolda gormek ivicn atamasa olur
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        emailRef.current.value,
-        passwordCRef.current.value
-      );
-      console.log(user);
-      await updateProfile(auth.currentUser, { displayName: displayName });
-      navi("/login");
-    } catch (error) {
-      console.log(error);
-    }
+
+     if(passwordCRef.current.value ===passwordRef.current.value )
+     {
+      try {
+        //bunu degisken atadam consolda gormek ivicn atamasa olur
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          emailRef.current.value,
+          passwordCRef.current.value
+        );
+        console.log(user);
+        await updateProfile(auth.currentUser, { displayName: displayName });
+        navi("/login");
+      } catch (error) {
+        console.log(error);
+      }
+     }else{
+      alert('password kontrol et')
+     }
+
+    
   };
 
   return (

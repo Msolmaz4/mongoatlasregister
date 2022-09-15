@@ -45,6 +45,7 @@ function Todo() {
       console.log(res)
       setData([...data,{todo:input,id:res.id}])
     })
+  setInput()
   };
 
   //firebase bagliyoruy
@@ -68,6 +69,8 @@ function Todo() {
     todoSch.docs.forEach((doc) => {
       todos.push({ ...doc.data(), id: doc.id });
     });
+
+  
     //consol gorduk
     /**
      * (2) [{…}, {…}]

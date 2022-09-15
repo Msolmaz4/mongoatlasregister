@@ -19,10 +19,19 @@ const Privat = () => {
 
   const { isAuth } =useContext(AuthContext)
   if(isAuth){
-    return <Outlet/>
-  }
+    return  <Outlet/>
+   }
+ 
+  
 
-  return <Navigate to='/login'/>
+   if(!isAuth){
+    return  <Navigate to='/login'/> && alert('deneme')
+   }
+
+
+
+
+
 
   
 }
