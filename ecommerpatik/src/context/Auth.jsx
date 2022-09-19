@@ -3,6 +3,7 @@ import axios from 'axios'
 import React,{createContext,useState,useEffect} from 'react'
 
 
+
  export const Authen = createContext()
 
 export  const AuthenProvider = (props)=>{
@@ -22,6 +23,12 @@ export  const AuthenProvider = (props)=>{
 
 
 console.log('filter',filter)
+
+useEffect(()=>{
+    const ada =load.filter((er)=>er.name.toLowerCase().includes(filter.toLowerCase()))
+    setLoad(ada)
+
+},[filter])
 
 
 
