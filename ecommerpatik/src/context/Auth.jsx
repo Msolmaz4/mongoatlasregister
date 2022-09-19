@@ -1,3 +1,4 @@
+
 import axios from 'axios'
 import React,{createContext,useState,useEffect} from 'react'
 
@@ -10,7 +11,7 @@ export  const AuthenProvider = (props)=>{
     const [load ,setLoad] =useState([])
 
     const [filter,setFilter] =useState()
-    const [input,setInput] =useState()
+    
 
    
     useEffect(()=>{
@@ -20,13 +21,13 @@ export  const AuthenProvider = (props)=>{
     },[])
 
 
- console.log('load',load)
+console.log('filter',filter)
 
 
 
 
     return(
-<Authen.Provider value={{load ,filter,setFilter,input,setInput}}>
+<Authen.Provider value={{load ,filter,setFilter}}>
         {props.children}
     </Authen.Provider>
     )

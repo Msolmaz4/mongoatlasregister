@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,8 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Products from './Products.jsx';
 import Filter from './Filter.jsx'
 
-
-
+import {Authen} from  '../context/Auth'
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
@@ -26,9 +26,14 @@ import { styled, alpha } from '@mui/material/styles';
 const pages = ['Login', 'Register'];
 const settings = ['Profile', 'Account', 'Favori', 'Logout'];
 
+
+
 const Home = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const {setFilter} = useContext(Authen)
+  
 
   const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -96,6 +101,11 @@ const Home = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handle = (e) => {
+setFilter(e.target.value)
+  
+  };
+ 
 
   return (
     <div>
@@ -196,8 +206,10 @@ const Home = () => {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onClick={handle}
               
             />
+           
           </Search>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
