@@ -1,0 +1,24 @@
+.adana{
+  display: flex;
+}
+.pro{
+  display: grid;
+  grid-template-columns: 1190px;
+  grid-template-rows: 100vh ;
+  column-gap: 10px;
+
+  
+ 
+ 
+  
+  border: solid red 3px;
+  
+}
+.fil{
+
+  display: grid;
+ grid-template-columns: 200px ;
+ grid-template-rows: 100px 2fr;
+  border: solid black 3px;
+  
+}
