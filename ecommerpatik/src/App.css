@@ -22,3 +22,11 @@
   border: solid black 3px;
   
 }
+.car{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ca{
+  display: flex;
+  flex-wrap: wrap;
+}

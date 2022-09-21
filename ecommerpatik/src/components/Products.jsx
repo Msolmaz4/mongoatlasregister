@@ -1,12 +1,29 @@
-import React from 'react'
-import Cart from './Cart'
+import Card from "./Cart";
+import React, { useContext, useState } from "react";
+import { Authen } from "../context/Auth";
 
 const Products = () => {
+  const { load } = useContext(Authen);
+  console.log("card", load);
+ 
   return (
-    <div>Product
-<Cart/>
-    </div>
-  )
-}
+    <div>
+      {load.map((er,index) => {
+       
+        return (
+          
+          <div key={index}>
+            <Card 
+            name={er.name}
+           
+            ad={er.address}
+          
 
-export default Products
+          />
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+export default Products;

@@ -11,6 +11,8 @@ export  const AuthenProvider = (props)=>{
 
     const [load ,setLoad] =useState([])
 
+    const [adana,setAdana] =useState(true)
+
     const [filter,setFilter] =useState()
     
 
@@ -25,8 +27,14 @@ export  const AuthenProvider = (props)=>{
 console.log('filter',filter)
 
 useEffect(()=>{
-    const ada =load.filter((er)=>er.name.toLowerCase().includes(filter.toLowerCase()))
-    setLoad(ada)
+
+        const ada =load.filter((er)=>er.name.toLowerCase().includes(filter.toLowerCase()))
+        if(ada.length > 0 ){
+            setLoad(ada)
+        }
+      
+    
+   
 
 },[filter])
 
@@ -34,7 +42,7 @@ useEffect(()=>{
 
 
     return(
-<Authen.Provider value={{load ,filter,setFilter}}>
+<Authen.Provider value={{load ,filter,setFilter,adana,setAdana}}>
         {props.children}
     </Authen.Provider>
     )
