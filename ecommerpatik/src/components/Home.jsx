@@ -216,7 +216,16 @@ setFilter(e.target.value)
       </Container>
     </AppBar>
         </div>
+        <div className="ana">
+          
+          <button>elektro</button>
+          <button>hause</button>
+          <button>all</button>
+          <button>handwerk</button>
+          <button>garten</button>
+        </div>
         <div className='adana'>
+        
             <div className='fil'>
           
             <Filter/>

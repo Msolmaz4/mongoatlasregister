@@ -30,3 +30,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+.ana{
+  border: 3px green solid;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.ana button:hover{
+  background-color: red;
+}
