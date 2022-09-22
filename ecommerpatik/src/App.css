@@ -27,16 +27,52 @@
   flex-wrap: wrap;
 }
 .ca{
-  display: flex;
-  flex-wrap: wrap;
+ 
 }
 .ana{
   border: 3px green solid;
+  
   height: 30px;
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
+button{
+  border-radius: 5px;
+  cursor: pointer;
+}
 .ana button:hover{
   background-color: red;
 }
+.log{
+  width: 100vw;
+  height: 100vh;
+  padding: 0px; 
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+
+  flex-wrap: wrap;
+
+
+}
+.der{
+  height: 100px;
+  width: 100px;
+margin-top: 300px;
+  border-radius: 45px;
+  background: red;
+  display: flex;
+}
+
+.recht{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+ 
+  width: 50%;
+  height: 100%;
+  border: solid 2px red;
+}
+
+
