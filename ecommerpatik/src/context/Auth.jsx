@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import React,{createContext,useState,useEffect} from 'react'
+import React,{createContext,useState,useEffect, useRef} from 'react'
 
 
 
@@ -14,6 +14,19 @@ export  const AuthenProvider = (props)=>{
     const [adana,setAdana] =useState(true)
 
     const [filter,setFilter] =useState()
+
+
+ const selectRef = useRef()
+ const minRef = useRef()
+ const maxRef = useRef()
+
+ const handle1 =()=>{
+    console.log(
+        minRef.current.value,
+        maxRef.current.value,
+        selectRef.current.value
+    )
+ }
     
 
    
@@ -42,7 +55,7 @@ useEffect(()=>{
 
 
     return(
-<Authen.Provider value={{load ,filter,setFilter,adana,setAdana}}>
+<Authen.Provider value={{load ,filter,setFilter,adana,setAdana,selectRef,minRef,maxRef,handle1}}>
         {props.children}
     </Authen.Provider>
     )

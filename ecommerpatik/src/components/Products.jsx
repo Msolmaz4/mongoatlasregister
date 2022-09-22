@@ -1,5 +1,5 @@
 import Card from "./Cart";
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { Authen } from "../context/Auth";
 
 const Products = () => {
