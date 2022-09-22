@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert'
+import { motion } from 'framer-motion'
 
 
 const ExpandMore = styled((props) => {
@@ -42,8 +43,14 @@ console.log(ad)
 
 
   return (
-    <div className='car'>
-      <div className='ca'>
+    <motion.div layout 
+    animate={{opacity:1,scale:1}}
+    initial={{opacity:0 ,scale:1}}
+    exit={{opacity:0,scale:3}}
+    transition={{duration:2}}
+
+    >
+      
       <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
@@ -121,9 +128,9 @@ console.log(ad)
         </CardContent>
       </Collapse>
     </Card>
-      </div>
+     
 
-    </div>
+    </motion.div>
     
   );
 }

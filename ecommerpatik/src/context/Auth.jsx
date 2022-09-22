@@ -33,6 +33,7 @@ export  const AuthenProvider = (props)=>{
     useEffect(()=>{
         axios.get('https://jsonplaceholder.typicode.com/users')
         .then((res)=>setLoad(res.data))
+        console.log(load)
 
     },[])
 
@@ -46,7 +47,7 @@ useEffect(()=>{
             setLoad(ada)
         }
       
-    
+
    
 
 },[filter])

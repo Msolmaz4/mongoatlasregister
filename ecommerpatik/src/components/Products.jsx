@@ -1,30 +1,33 @@
 import Card from "./Cart";
 import React, { useContext} from "react";
 import { Authen } from "../context/Auth";
+import {motion,AnimatePresence} from 'framer-motion'
 
 const Products = () => {
   const { load } = useContext(Authen);
   console.log("card", load);
- 
+ //animate={{y:100}}
   return (
-    <div>
-     
-      {load.map((er,index) => {
+    <motion.div layout className="populer">
+     <AnimatePresence>
+     {load.map((er,index) => {
        
-        return (
+       return (
+         
+         <div key={index}>
+           <Card 
+           name={er.name}
           
-          <div key={index}>
-            <Card 
-            name={er.name}
-           
-            ad={er.address}
-          
+           ad={er.address}
+         
 
-          />
-          </div>
-        );
-      })}
-    </div>
+         />
+         </div>
+       );
+     })}
+     </AnimatePresence>
+     
+    </motion.div>
   );
 };
 export default Products;

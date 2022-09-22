@@ -31,7 +31,7 @@ const settings = ['Profile', 'Account', 'Favori', 'Logout'];
 
 
 const Home = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+ 
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const {setFilter,adana,setAdana} = useContext(Authen)
