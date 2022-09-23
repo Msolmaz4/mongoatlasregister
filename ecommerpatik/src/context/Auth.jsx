@@ -41,6 +41,9 @@ export const AuthenProvider = (props) => {
 
 
     const handle1 = (e) => {
+        if(minRef.current.value < 0 ){
+            return alert(' min sifirdan buyuk olmak yorundadir')
+        }
         try {
 
             console.log(
@@ -59,8 +62,10 @@ export const AuthenProvider = (props) => {
         e.preventDefault()
         console.log('de', mail, pass)
         if(
-            asal.email == mail && asal.password == pass
+           
+        asal.find((er)=>er.email === mail ) && asal.find((er)=>er.password === pass)
         )
+
         {
             setAdana(true)
             yol('/')

@@ -8,6 +8,7 @@ import { AuthenProvider } from "./context/Auth.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Detail from "./components/Detail";
 const App = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Routes>
           </AuthenProvider>
         </BrowserRouter>
