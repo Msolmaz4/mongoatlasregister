@@ -10,9 +10,10 @@ const Detail = () => {
   const {load}= useContext(Authen)
   console.log('detail',load)
 
-
-  const elem = load.find(er=>er.id === id)
-  console.log(elem)
+//tek esittir yapacagiz
+  const elem = load.find(er=>er.id = id)
+  console.log('elem',elem)
+ 
 
 
   
@@ -21,7 +22,13 @@ const Detail = () => {
   return (
     <div>
     {id}
-   {}
+   {
+    elem.name
+   }
+   {elem.id}
+   {elem.phone}
+
+   
     </div>
   )
 }
