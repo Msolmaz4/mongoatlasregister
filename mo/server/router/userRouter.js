@@ -32,13 +32,14 @@ router.post('/signin',async(req,res)=>{
 
     try {
         const {email,password}= req.body
+        console.log(email,password)
 
         const user = await Users.findOne({email})
         if(!user) return res.status(400).json({message:'kullanici yok'})
         const pass = await bcrypt.compare(password ,user.password)
         if(!pass) return res.status(400).json({message:'password gum'})
 
-        return res.status(200).json({message:'okey'})
+        return res.status(200).json({user,message:'AUTHENTICATION'})
 
 
         
