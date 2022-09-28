@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import {Authen} from '../context/Auth'
 
 import Col from 'react-bootstrap/Col';
@@ -8,15 +8,24 @@ import Button from 'react-bootstrap/Button';
 
 
 import {motion} from 'framer-motion'
+import Home from './Home';
 
 const Login = () => {
 
 
-const {setMail,mail,pass,setPass,handle2} =useContext(Authen)
+const {handle2} =useContext(Authen)
 
+const [email, setEmail] = useState();
+const [pass, setPass] = useState();
 
-
+const handle5 = (e)=>{
+  e.preventDefault()
+  handle2(email,pass)
+}
   return (
+    <div>
+      
+
     <div className='log'>
       <div className='recht'>
      
@@ -31,13 +40,13 @@ const {setMail,mail,pass,setPass,handle2} =useContext(Authen)
       </div>
       <div className='link'>
       
-      <Form onSubmit={handle2}>
+      <Form onSubmit={handle5}>
       <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
         <Form.Label column sm="2">
           Email
         </Form.Label>
         <Col sm="10">
-          <Form.Control  placeholder="email@example.com" value={mail} onChange={(e)=>setMail(e.target.value)}/>
+          <Form.Control  placeholder="email@example.com" value={email} onChange={(e)=>setEmail(e.target.value)}/>
         </Col>
       </Form.Group>
 
@@ -50,12 +59,13 @@ const {setMail,mail,pass,setPass,handle2} =useContext(Authen)
         </Col>
       </Form.Group>
 
-      <Button variant="primary" size="lg" type='submit' onClick={handle2}>
+      <Button variant="primary" size="lg" type='submit' onClick={handle5}>
           LOGIN
         </Button>
     </Form>
     </div>
 
+    </div>
     </div>
   )
 }
