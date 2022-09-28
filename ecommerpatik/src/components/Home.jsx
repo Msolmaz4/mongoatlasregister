@@ -24,15 +24,15 @@ import { styled, alpha } from '@mui/material/styles';
 import {useNavigate} from 'react-router-dom'
 
 
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
-
-const settings = ['Profile', 'Account', 'Favori', 'Logout'];
+const settings = ['Profile', 'Account', 'Favori', 'Logout','Deneme'];
 
 
 
 const Home = () => {
  
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState();
 
   const {setFilter,adana,setAdana} = useContext(Authen)
   const navi =useNavigate()
@@ -94,15 +94,18 @@ const Home = () => {
     navi('/register')
   };
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+    setAnchorElUser(event.currentTarget)
+  
   };
 
   const handleCloseNavMenu = () => {
     navi('/login');
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleCloseUserMenu = (e) => {
+    setAnchorElUser();
+    console.log(e)
+    
   };
   const handle = (e) => {
 setFilter(e.target.value)
@@ -174,7 +177,7 @@ setFilter(e.target.value)
 
    {
     adana ? <>
-
+    <ShoppingBasketIcon/>
     <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -199,7 +202,8 @@ setFilter(e.target.value)
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center">
+                    {setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

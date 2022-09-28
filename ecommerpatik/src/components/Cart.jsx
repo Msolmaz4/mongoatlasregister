@@ -13,10 +13,13 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { motion } from 'framer-motion'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {Link} from 'react-router-dom'
+import { useState } from 'react';
 
 
 const ExpandMore = styled((props) => {
@@ -37,10 +40,21 @@ function CardPage({name,ad,id}) {
     setExpanded(!expanded);
   };
 
-console.log(name)
-console.log(ad)
+ 
+   const [a,setA] =useState(0)
+   const [ilk,setIlk] = useState(<FavoriteBorderIcon/>)
 
-
+   const handle7=()=>{
+    if(a===0){
+      setA(1)
+      setIlk(<FavoriteBorderIcon/>)
+    }
+    if(a===1){
+      setA(0)
+      setIlk(<FavoriteIcon/>)
+    }
+   
+   }
 
 
 
@@ -85,8 +99,10 @@ console.log(ad)
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+
+        <IconButton aria-label="add to favorites" onClick={handle7}>
+            {ilk}
+          
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
@@ -109,6 +125,6 @@ console.log(ad)
     </motion.div>
     
   );
-}
 
+}
 export default CardPage

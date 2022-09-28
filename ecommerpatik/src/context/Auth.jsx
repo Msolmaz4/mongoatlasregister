@@ -40,10 +40,12 @@ export const AuthenProvider = (props) => {
     }
   };
 
-  const handle2 = (email,pass) => {
+  const handle2 = async(email,pass) => {
     
     if(asal.email === email && asal.password === pass){
         console.log("de", email, pass);
+     await   setAdana(true)
+     yol('/')
     }
     
     
