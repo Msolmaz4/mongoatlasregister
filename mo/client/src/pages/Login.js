@@ -37,6 +37,7 @@ console.log(email,password)
      .then((res)=>{
       localStorage.setItem('user',JSON.stringify(res.data.user))
       setUser(res.data.user)
+      navi('/')
 
      })
      

@@ -1,39 +1,57 @@
 
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
+
+import { api } from '../axios';
 
 function Register() {
 
-  
+  const [formData,setFormData] = useState({
+    fullname:'',
+    email:'',
+    password:'',
+    phoneNumber:''
+    
+  })
+
+  console.log(formData)
  
 
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>fullName</Form.Label>
-        <Form.Control type="text" placeholder="Enter fullname" />
-      
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>email</Form.Label>
-        <Form.Control type="email" placeholder="Enter email"  />
-      
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>phone</Form.Label>
-        <Form.Control type="number" placeholder="Enter phone NUMBER" />
-      
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-   
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-  );
+
+
+    <div>
+      <form onSubmit={(e)=>{
+      e.preventDefault()
+      api().post('/user/signup',formData)
+      .then((res)=>console.log(res))
+    }}>
+
+ 
+      <label>fullName</label> <br/>
+      <input  type='text'  onChange={(e)=>setFormData({...formData,fullname:e.target.value})}/><br/>
+      <label>email</label><br/>
+      <input type='email' onChange={(e)=>setFormData({...formData,email:e.target.value})} /><br/>
+      <label>password</label><br/>
+      <input type='password' onChange={(e)=>setFormData({...formData,password:e.target.value})}/><br/>
+      <label >phoneNumber</label><br/>
+      <input type='number' onChange={(e)=>setFormData({...formData,phoneNumber:e.target.value})} /><br/>
+      <button type='submit'>Register</button><br/>
+      </form>
+    </div>
+
+
+
+
+
+
+
+  )
+
+
+
+
+
+
 }
 
 export default Register;

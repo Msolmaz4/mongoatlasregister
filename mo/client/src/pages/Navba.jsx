@@ -3,9 +3,20 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
-import {Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import {useEffect} from 'react'
 
-function Navba() {
+function Navba( {user, setUser}) {
+    // Sayfazyi yenileyince firis yap geliyor bunda usseefefect ile zapariy
+
+useEffect(() => {
+    if(localStorage.getItem('user') && !user){
+        setUser(JSON.parse(localStorage.getItem('user')))
+
+    }
+
+}, [])
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -28,6 +39,16 @@ function Navba() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+
+{
+    user ? <>
+    <Button variant="primary" size="lg" onClick={(e)=>{
+        localStorage.removeItem(user)
+        setUser('')
+    }}> cikis yap</Button>
+    </>
+    :
+    <>
         <Link to='/register'>
         <Button variant="primary" size="lg"  >
         register
@@ -38,6 +59,12 @@ function Navba() {
         Login
       </Button>{' '}
       </Link>
+    </>
+
+
+}
+
+      
     
       </Container>
     </Navbar>

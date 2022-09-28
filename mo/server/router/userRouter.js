@@ -7,7 +7,7 @@ router.post('/signup',async(req,res)=>{
 
     try { 
         const { fullname,email,password,phoneNumber} = req.body
-    console.log(fullname,email,password,phoneNumber)
+        console.log(fullname,email,password,phoneNumber)
      
     const neuEmail = await Users.findOne({email :email})
     if(neuEmail) return res.status(400).json({message:'email mevcut'})
@@ -47,4 +47,7 @@ router.post('/signin',async(req,res)=>{
         console.log(error)
     }
 })
+
+
+
 module.exports =router
