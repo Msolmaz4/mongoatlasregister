@@ -9,6 +9,7 @@ import {useEffect} from 'react'
 function Navba( {user, setUser}) {
     // Sayfazyi yenileyince firis yap geliyor bunda usseefefect ile zapariy
 
+    
 useEffect(() => {
     if(localStorage.getItem('user') && !user){
         setUser(JSON.parse(localStorage.getItem('user')))

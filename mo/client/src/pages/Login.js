@@ -2,6 +2,7 @@
 import React, {useState} from 'react'
 import {api} from '../axios'
 import {useNavigate} from 'react-router-dom'
+import toast from 'react-hot-toast';
 
 function Login({setUser}) {
   
@@ -11,7 +12,7 @@ function Login({setUser}) {
     email:'',
     password:''
   })
-  console.log(formdata)
+  console.log('form',formdata)
   
   
 /*
@@ -41,7 +42,10 @@ console.log(email,password)
 
      })
      
-      .catch((err)=>console.log(err))
+     // .catch((err)=>{console.log(err.res.data.message)})
+     .catch((err)=>toast.error(err.res.data.message))
+     
+
     }}>
       <div>
       <label>email </label><br/>
@@ -58,7 +62,7 @@ console.log(email,password)
 
       onChange={(e)=>setFormdata({...formdata,password:e.target.value})}
        /><br/>
-      <button type='submit'>login</button>
+      <button type='submit' disabled={formdata.email === '' || formdata.password === ''} >login</button>
      </div>
   
     </form>
