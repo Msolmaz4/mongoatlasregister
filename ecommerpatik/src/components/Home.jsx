@@ -22,7 +22,7 @@ import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 
 import {useNavigate} from 'react-router-dom'
-
+import {Link} from 'react-router-dom'
 
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
@@ -102,9 +102,9 @@ const Home = () => {
     navi('/login');
   };
 
-  const handleCloseUserMenu = (e) => {
-    setAnchorElUser();
-    console.log(e)
+  const handleCloseUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget)
+   console.log(anchorElUser)
     
   };
   const handle = (e) => {
@@ -201,8 +201,9 @@ setFilter(e.target.value)
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting}  onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
+                    
                     {setting}</Typography>
                 </MenuItem>
               ))}

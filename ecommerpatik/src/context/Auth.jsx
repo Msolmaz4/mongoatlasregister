@@ -11,6 +11,7 @@ export const AuthenProvider = (props) => {
   const [adana, setAdana] = useState(false);
 
   const [filter, setFilter] = useState();
+  const [basket,setBasket] =useState()
 
 
 
@@ -89,11 +90,17 @@ export const AuthenProvider = (props) => {
               setAsa(asa)
               */
 
+
+
+   const Add = ()=>{
+
+   }           
+
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => setLoad(res.data));
-    //console.log(load)
+    console.log(load)
   }, []);
 
   useEffect(() => {
@@ -117,7 +124,7 @@ export const AuthenProvider = (props) => {
         minRef,
         maxRef,
         handle1,
-        
+        Add,
   
         handle2,
         handle3,
