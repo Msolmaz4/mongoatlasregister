@@ -20,6 +20,7 @@ import { motion } from 'framer-motion'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import {Link} from 'react-router-dom'
 import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 
 const ExpandMore = styled((props) => {
@@ -107,12 +108,15 @@ function CardPage({name,ad,id}) {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+        <Button   variant="contained" color="success">ekle</Button>
+          <Button  variant="contained" size="small">cikar</Button>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
+         
     <Link to={`detail/${id}`}> <ArrowForwardIosIcon/>
     </Link>
        
