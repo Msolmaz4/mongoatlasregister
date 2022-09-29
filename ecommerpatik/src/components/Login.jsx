@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 
 
 import {motion} from 'framer-motion'
-import Home from './Home';
+
 
 const Login = () => {
 
@@ -21,6 +21,8 @@ const [pass, setPass] = useState();
 const handle5 = (e)=>{
   e.preventDefault()
   handle2(email,pass)
+  setEmail('')
+  setPass('')
 }
   return (
     <div>
