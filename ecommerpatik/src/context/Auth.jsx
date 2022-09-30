@@ -7,11 +7,17 @@ export const Authen = createContext();
 
 export const AuthenProvider = (props) => {
   const [load, setLoad] = useState([]);
-
   const [adana, setAdana] = useState(false);
-
   const [filter, setFilter] = useState();
-  const [basket,setBasket] =useState()
+  //basket 
+  const [basket,setBasket] =useState([])
+
+  const add = (id)=>{
+    //olup olmadigini kontrol edeir
+    console.log(id)
+
+  }
+
 
 
 
@@ -126,7 +132,7 @@ export const AuthenProvider = (props) => {
         maxRef,
         handle1,
         Add,
-  
+  add,
         handle2,
         handle3,
       }}
