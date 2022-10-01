@@ -21,7 +21,8 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-
+import {useContext } from "react";
+import { Authen } from "../context/Auth"
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -33,12 +34,23 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function CardPage({ name, ad,id,add}) {
+function CardPage({ name,ad,id}) {
+
+  const { add } = useContext(Authen);
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+const ekleme=()=>{
+  add(id,name)
+}
+
+  
+
+
+  //favori yapma
 
   const [a, setA] = useState(0);
   const [ilk, setIlk] = useState(<FavoriteBorderIcon/>);
@@ -53,6 +65,8 @@ function CardPage({ name, ad,id,add}) {
       setIlk(<FavoriteIcon />);
     }
   };
+
+
 
   return (
     <motion.div
@@ -95,7 +109,9 @@ function CardPage({ name, ad,id,add}) {
           <IconButton aria-label="share">
             <ShareIcon />
           </IconButton>
-          <Button variant="contained" color="success" onClick={()=>add(id)} >
+          <Button variant="contained" color="success"
+          onClick={ekleme}
+          >
             ADD
           </Button>
           <Button variant="contained" size="small" >
@@ -114,6 +130,7 @@ function CardPage({ name, ad,id,add}) {
           </ExpandMore>
         </CardActions>
       </Card>
+      
     </motion.div>
   );
 }

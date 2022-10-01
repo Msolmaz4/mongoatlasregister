@@ -17,7 +17,7 @@ const Products = () => {
          <div key={index}>
            <Card 
            name={er.name}
-          id={er.id}
+           id={er.id}
            ad={er.address}
          
 

@@ -9,15 +9,34 @@ export const AuthenProvider = (props) => {
   const [load, setLoad] = useState([]);
   const [adana, setAdana] = useState(false);
   const [filter, setFilter] = useState();
-  //basket 
-  const [basket,setBasket] =useState([])
 
-  const add = (id)=>{
-    //olup olmadigini kontrol edeir
-    console.log(id)
-
+//ekleme
+const [basket,setBasket]= useState([])
+const add = (id,name)=>{
+  const denme = basket.find((er)=>er.id === id)
+  if(denme){
+    denme.amount +=1
+    setBasket([...basket.filter((el)=>el.id !== id),{
+      id:id,
+      name:name,
+      amount: denme.amount
+    }])
+  }
+  else{
+    setBasket([...basket,{
+      id:id,
+      name:name,
+     
+      amount:1
+  }])
   }
 
+
+}
+  
+useEffect(()=>{
+  console.log(basket)
+},[basket])
 
 
 
@@ -31,7 +50,7 @@ export const AuthenProvider = (props) => {
   const selectRef = useRef();
   const minRef = useRef();
   const maxRef = useRef();
-
+//filter
   const handle1 = (e) => {
     if (minRef.current.value < 0){
       return alert(" min sifirdan buyuk olmak yorundadir");
@@ -47,6 +66,7 @@ export const AuthenProvider = (props) => {
     }
   };
 
+  //login
   const handle2 = async(email,pass) => {
     
     if(asal.email === email && asal.password === pass){
@@ -58,7 +78,7 @@ export const AuthenProvider = (props) => {
     
     
   };
-
+//register
   const handle3 = async (name, email, password) => {
 
     if (name && email && password) {
@@ -98,17 +118,14 @@ export const AuthenProvider = (props) => {
               */
 
 
-
-   const Add = ()=>{
-
-   }           
+        
 
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => setLoad(res.data));
     console.log(load)
-  }, []);
+  },[]);
 
   useEffect(() => {
     const ada = load.filter((er) =>
@@ -131,8 +148,9 @@ export const AuthenProvider = (props) => {
         minRef,
         maxRef,
         handle1,
-        Add,
-  add,
+        add,
+        basket,
+        setBasket,
         handle2,
         handle3,
       }}
