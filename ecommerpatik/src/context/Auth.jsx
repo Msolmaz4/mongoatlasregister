@@ -9,6 +9,7 @@ export const AuthenProvider = (props) => {
   const [load, setLoad] = useState([]);
   const [adana, setAdana] = useState(false);
   const [filter, setFilter] = useState();
+  const [kullan,setKullan]= useState('')
 
 //ekleme
 const [basket,setBasket]= useState([])
@@ -72,6 +73,7 @@ useEffect(()=>{
     if(asal.email === email && asal.password === pass){
         console.log("de", email, pass);
      await   setAdana(true)
+       setKullan(asal.name)
      
      yol('/')
     }
@@ -153,6 +155,7 @@ useEffect(()=>{
         setBasket,
         handle2,
         handle3,
+        kullan
       }}
     >
       {props.children}

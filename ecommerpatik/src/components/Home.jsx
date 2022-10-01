@@ -22,7 +22,6 @@ import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
 
 import {useNavigate} from 'react-router-dom'
-import {Link} from 'react-router-dom'
 
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
@@ -34,7 +33,7 @@ const Home = () => {
  
   const [anchorElUser, setAnchorElUser] = React.useState();
 
-  const {setFilter,adana,setAdana} = useContext(Authen)
+  const {setFilter,adana,kullan} = useContext(Authen)
   const navi =useNavigate()
   
 
@@ -177,6 +176,7 @@ setFilter(e.target.value)
 
    {
     adana ? <>
+    {kullan}
     <ShoppingBasketIcon/>
     <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
