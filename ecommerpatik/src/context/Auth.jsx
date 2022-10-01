@@ -34,10 +34,37 @@ const add = (id,name)=>{
 
 
 }
+
+//CIKARMA
+
+const silme=(id,name)=>{
+  //basket varsa
+  const sel = basket.find((it)=>it.id === id)
+   sel.amount -=1
+  if(sel.amount === 0){
+   
+    
+      setBasket([...basket.filter(item => item.id !== id)]);
+    
+  }
+  else{
+    setBasket([...basket.filter(item => item.id !== id),
+      {
+        id : id,
+        name:name,
+    
+       
+        amount : sel.amount
+      }])
+  }
+
+
+}
   
 useEffect(()=>{
   console.log(basket)
 },[basket])
+
 
 
 
@@ -155,7 +182,9 @@ useEffect(()=>{
         setBasket,
         handle2,
         handle3,
-        kullan
+        kullan,
+        silme
+        
       }}
     >
       {props.children}

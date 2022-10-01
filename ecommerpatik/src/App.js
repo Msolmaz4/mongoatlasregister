@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Detail from "./components/Detail";
+import Favori from "./components/Favori";
 const App = () => {
   return (
     <div>
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/favori" element={<Favori />} />
           </Routes>
           </AuthenProvider>
         </BrowserRouter>

@@ -20,6 +20,7 @@ import {Authen} from  '../context/Auth'
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { styled, alpha } from '@mui/material/styles';
+import {Link} from 'react-router-dom'
 
 import {useNavigate} from 'react-router-dom'
 
@@ -33,7 +34,7 @@ const Home = () => {
  
   const [anchorElUser, setAnchorElUser] = React.useState();
 
-  const {setFilter,adana,kullan} = useContext(Authen)
+  const {setFilter,adana,kullan,basket} = useContext(Authen)
   const navi =useNavigate()
   
 
@@ -134,7 +135,7 @@ setFilter(e.target.value)
               textDecoration: 'none',
             }}
           >
-            commerce
+            ECOMMERCE
           </Typography>
 
           
@@ -147,7 +148,7 @@ setFilter(e.target.value)
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-          login
+          LOGIN
 
               </Button>
               <Button
@@ -177,7 +178,9 @@ setFilter(e.target.value)
    {
     adana ? <>
     {kullan}
-    <ShoppingBasketIcon/>
+ <Link to='/favori'>
+   {basket.length}
+    <ShoppingBasketIcon/></Link>
     <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

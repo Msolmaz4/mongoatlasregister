@@ -36,7 +36,7 @@ const ExpandMore = styled((props) => {
 
 function CardPage({ name,ad,id}) {
 
-  const { add } = useContext(Authen);
+  const { add ,silme} = useContext(Authen);
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -45,6 +45,9 @@ function CardPage({ name,ad,id}) {
 
 const ekleme=()=>{
   add(id,name)
+}
+const remove=()=>{
+  silme(id,name)
 }
 
   
@@ -114,7 +117,8 @@ const ekleme=()=>{
           >
             ADD
           </Button>
-          <Button variant="contained" size="small" >
+          <Button variant="contained" size="small"
+          onClick={remove} >
             REMOVE
           </Button>
           <ExpandMore
