@@ -1,6 +1,9 @@
 const {Sequelize}= require('sequelize')
 const TodModels = require('../models/TodModels')
 
+//quey yazmak
+//const todo =require('../db/db')
+
 
 exports.addOneTodo = async(req,res)=>{
     //console.log(req.body)
@@ -11,10 +14,14 @@ exports.addOneTodo = async(req,res)=>{
      }
    
 }
+//query bir ornek
 exports.getAllTodos=async(req,res)=>{
     try {
         
         const allTodos =await TodModels.findAll()
+     // const todos =await todo.query('SELECT*FROM TODOS)
+     //console.log(todos[0])
+
         res.status(200).send(allTodos)
     } catch (error) {
         console.log(error)
