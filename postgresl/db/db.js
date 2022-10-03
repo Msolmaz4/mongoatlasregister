@@ -15,6 +15,6 @@ todo.authenticate()
 function syncTodo(){
     return todo.sync({force :false})
 }
-todo.didSync = syncTodo
+todo.didSync = syncTodo()
 
 module.exports = todo

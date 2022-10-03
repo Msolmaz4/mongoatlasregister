@@ -6,6 +6,10 @@ app.use(express.urlencoded({  extended : false}))
 const PORT = 8000
 require('./models/TodModels')
 
+const todoRouter =require('./router/todoRouter')
+
+app.use('/api/todos',todoRouter)
+
 
 app.listen(PORT,()=>{
     console.log('in baglanti')
