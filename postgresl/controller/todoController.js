@@ -20,3 +20,23 @@ exports.getAllTodos=async(req,res)=>{
         console.log(error)
     }
 }
+
+exports.updateTodo =async(req,res)=>{
+    const { id } = req.params
+    const { todo} =req.body
+    await TodModels.update(
+        {
+            todo:todo
+        },
+        {
+            where:{
+                id:id
+            }
+        })
+        res.status(200).json({
+            message:'update'
+        })
+        
+}
+
+
