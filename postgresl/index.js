@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
 app.use(express.json())
-app.use(express.urlencoded({  extends : false}))
+app.use(express.urlencoded({  extended : false}))
 
-const Port = 3000
+const PORT = 8000
+require('./models/TodModels')
 
 
-app.listen(Port,()=>{
+app.listen(PORT,()=>{
     console.log('in baglanti')
 })
