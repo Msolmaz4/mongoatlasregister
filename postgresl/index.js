@@ -3,7 +3,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({  extended : false}))
 
-const PORT = 8000
+const PORT = 7000
 require('./models/TodModels')
 
 const todoRouter =require('./router/todoRouter')

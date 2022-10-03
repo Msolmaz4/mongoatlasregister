@@ -25,9 +25,7 @@ exports.updateTodo =async(req,res)=>{
     const { id } = req.params
     const { todo} =req.body
     await TodModels.update(
-        {
-            todo:todo
-        },
+        {todo:todo},
         {
             where:{
                 id:id
@@ -37,6 +35,16 @@ exports.updateTodo =async(req,res)=>{
             message:'update'
         })
         
+}
+
+exports.deleteTodo= async(req,res)=>{
+    const { id } = req.params
+    const todoD = await TodModels.findByPk(id)
+    todoD.destroy()
+    res.status(200).json({
+        message:'delete'
+    })
+
 }
 
 
