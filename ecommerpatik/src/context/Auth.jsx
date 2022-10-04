@@ -27,7 +27,6 @@ const add = (id,name)=>{
     setBasket([...basket,{
       id:id,
       name:name,
-     
       amount:1
   }])
   }
@@ -42,23 +41,16 @@ const silme=(id,name)=>{
   const sel = basket.find((it)=>it.id === id)
    sel.amount -=1
   if(sel.amount === 0){
-   
-    
       setBasket([...basket.filter(item => item.id !== id)]);
-    
   }
   else{
     setBasket([...basket.filter(item => item.id !== id),
       {
         id : id,
         name:name,
-    
-       
         amount : sel.amount
       }])
   }
-
-
 }
   
 useEffect(()=>{

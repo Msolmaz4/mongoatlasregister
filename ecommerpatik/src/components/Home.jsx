@@ -179,8 +179,12 @@ setFilter(e.target.value)
     adana ? <>
     {kullan}
  <Link to='/favori'>
-   {basket.length}
-    <ShoppingBasketIcon/></Link>
+<div style={{background:'white'}}>
+{basket.length}
+
+   
+    <ShoppingBasketIcon/>
+    </div></Link>
     <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

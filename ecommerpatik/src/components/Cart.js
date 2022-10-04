@@ -107,7 +107,7 @@ const remove=()=>{
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites" onClick={handle7}>
-            {ilk} {id}
+            {ilk}
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
