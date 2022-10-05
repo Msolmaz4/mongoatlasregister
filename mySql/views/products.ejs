@@ -1,4 +1,15 @@
 <h1>  urunler  </h1>
  <p>
     <%= urunler[0].name %> 
+    <%= urunler[0].price %> 
  </p>   
+ 
+ <ul>
+    <% urunler.forEach(element => { %>
+      <% if (element.price >= 601) { %>
+        <a href="/products/:<%= element.id %> ">
+        <li> <%= element.name %> </li></a>
+      <% } %>
+     
+    <% }) %> 
+ </ul>

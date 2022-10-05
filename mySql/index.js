@@ -4,7 +4,7 @@ const Port =8700
 
 //ejs langune indirdim kolaylik
 //burada ejs tanimla yoks ahata alirsin
-//app.set('view engine','ejs')
+app.set('view engine','ejs')
 
 const data = 
 [
@@ -15,7 +15,8 @@ const data =
 ]
 
 app.use('/products/:id',(req,res)=>{
-    res.render('products/details')
+    const urun =data.find(u=>u.id == req.params.id)
+    res.render('products-details',urun)
 })
 
 //burada datayi gonderrirken direk gonderemeyiz
