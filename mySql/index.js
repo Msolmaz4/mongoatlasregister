@@ -14,6 +14,7 @@ app.use(express.static('public'))
 //cunkyu botssrtap yukldeik onun icinsde nide module gidiyor
 app.use(express.static('node_modules'))
 
+//viewms icinde bir parikala olusrturdum azni olanlari tek parcadan cidrabilmek icin
 
 const data = 
 [
