@@ -39,7 +39,9 @@ app.use('/products',(req,res)=>{
 
 
 app.use('/',(req,res)=>{
-    res.render('ana sayfa')
+    res.render('index',{
+        urunler:data
+    })
 })
 
 app.use('/',(req,res)=>{
