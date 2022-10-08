@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { FaBars, FaTimesCircle } from "react-icons/fa";
+import { FaBars, FaTimesCircle ,FaGithub,FaLinkedin} from "react-icons/fa";
+import {HiOuttlineMail} from 'react-icons/hi'
+import {BsFillPersonLinesFill} from 'react-icons/bs'
 import Logo from "../ass/logo1.png";
 
 const Navbar = () => {
@@ -44,7 +46,10 @@ const Navbar = () => {
       </ul>
 
       {/*socilaicon */}
-      <div className="hidden"></div>
+      <div className="hidden">
+
+
+      </div>
     </div>
   );
 };
