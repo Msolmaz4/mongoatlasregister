@@ -10,7 +10,7 @@ const Navbar = () => {
 </div>
 {/**menu */}
 <div>
-    <ul className='flex'>
+    <ul className='hidden md-flex'>
         <li>Home</li>
         <li>About</li>
         <li>Skills</li>
@@ -26,13 +26,13 @@ const Navbar = () => {
 
 
    {/**Mobil */}
-   <div className='hidden'>
+   <div className='absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center'>
    <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Skills</li>
-        <li>Work</li>
-        <li>Contact</li>
+        <li className='py-6 text-4xl'>Home</li>
+        <li className='py-6 text-4xl'>About</li>
+        <li className='py-6 text-4xl'>Skills</li>
+        <li className='py-6 text-4xl'>Work</li>
+        <li className='py-6 text-4xl'>Contact</li>
     </ul>
    </div>
 
