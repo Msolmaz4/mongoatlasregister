@@ -46,8 +46,12 @@ const Navbar = () => {
       </ul>
 
       {/*socilaicon */}
-      <div className="hidden">
-
+      <div className="flex fixed flex-col top-[35%] left-0">
+<ul>
+    <li>
+        
+    </li>
+</ul>
 
       </div>
     </div>
