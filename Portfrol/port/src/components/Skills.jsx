@@ -6,9 +6,10 @@ import JavaScript from '../ass/javascript.png';
 import ReactImg from '../ass/react.png';
 import Node from '../ass/node.png';
 import FireBase from '../ass/firebase.png';
-import POST from '../ass/postgres-logo.png';
+import POST from '../ass/post.png';
 import Tailwind from '../ass/tailwind.png';
 import Mongo from '../ass/mongo.png';
+import Redux from '../ass/redux.svg'
 
 const Skills = () => {
   return (
@@ -36,6 +37,10 @@ const Skills = () => {
               <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
                   <img className='w-20 mx-auto' src={ReactImg} alt="HTML icon" />
                   <p className='my-4'>REACT</p>
+              </div>
+              <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
+                  <img className='w-20 mx-auto' src={Redux} alt="HTML icon" />
+                  <p className='my-4'>REDUX</p>
               </div>
               <div className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'>
                   <img className='w-20 mx-auto' src={POST} alt="HTML icon" />
